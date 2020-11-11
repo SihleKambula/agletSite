@@ -1,0 +1,315 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body,
+html {
+  background-color: black;
+}
+
+header {
+  padding: 45px 40px;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+}
+
+nav .link-container .nav-items {
+  display: flex;
+  list-style: none;
+}
+
+nav .link-container .nav-items .nav-item {
+  margin-right: 18px;
+}
+
+nav .link-container .nav-items .nav-item .active {
+  border-bottom: 3px solid #ffff;
+}
+
+nav .link-container .nav-items .nav-item .nav-link {
+  padding-bottom: 3px;
+  font-size: 20px;
+  line-height: 27px;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+}
+
+nav .link-container .nav-items .nav-item .nav-link::after {
+  content: "";
+  display: block;
+  margin-top: 1px;
+  width: 0%;
+  height: 3px;
+  background-color: #ffff;
+  transition: width 0.6s;
+}
+
+nav .link-container .nav-items .nav-item .nav-link:hover::after {
+  width: 100%;
+  transition: width 0.3s;
+}
+
+nav .burger {
+  display: none;
+  position: absolute;
+  right: 1rem;
+  top: 0.7rem;
+}
+
+nav .burger div {
+  width: 30px;
+  height: 3px;
+  background-color: #fff;
+  margin-top: 5px;
+}
+
+.swiper-container {
+  padding-top: 250px;
+  width: 100%;
+  height: 100vh;
+  cursor: grab;
+  scroll-behavior: smooth;
+  position: absolute;
+  top: 0;
+  z-index: -1;
+}
+
+.swiper-container .swiper-scrollbar {
+  background-color: grey;
+  margin-left: 38%;
+  margin-bottom: 5%;
+  width: 500px;
+  height: 4px;
+}
+
+.swiper-container .swiper-scrollbar .swiper-scrollbar-drag {
+  background-color: whitesmoke;
+}
+
+.swiper-container .swiper-scrollbar:hover {
+  cursor: pointer;
+}
+
+.swiper-container .swiper-wrapper .swiper-slide {
+  height: 500px;
+}
+
+.swiper-container .swiper-wrapper .swiper-slide .vids {
+  width: 600px;
+}
+
+.swiper-container .swiper-wrapper .swiper-slide .vid-heading {
+  color: white;
+  margin-top: 20px;
+  margin-left: 20px;
+  font-size: 1.7rem;
+  font-weight: bold;
+}
+
+.swiper-container .swiper-wrapper .swiper-slide .vid-subheading {
+  color: #676767;
+  margin-top: 2px;
+  margin-left: 20px;
+  font-size: 1.2rem;
+}
+
+.contact-section {
+  width: 100%;
+  padding-top: 5px;
+  padding-left: 12%;
+  display: flex;
+}
+
+.contact-section .image-container {
+  width: 36%;
+}
+
+.contact-section .image-container img {
+  width: 100%;
+}
+
+.contact-section .contact-information {
+  color: #fff;
+  padding-left: 60px;
+  padding-top: 22%;
+}
+
+.contact-section .contact-information p {
+  font-size: 1.3rem;
+  font-weight: lighter;
+  color: #a6a6a6;
+}
+
+.contact-section .contact-information p span {
+  font-weight: bold;
+  color: #cccccc;
+}
+
+.contact-section .contact-information .about-me,
+.contact-section .contact-information .contact-details {
+  margin-bottom: 50px;
+}
+
+.contact-section .contact-information .social-media a {
+  text-decoration: none;
+  color: #cccccc;
+  margin: 0 10px;
+}
+
+.contact-heading {
+  font-size: 18rem;
+  position: absolute;
+  top: 18%;
+  left: 26%;
+  color: #1a1a1a;
+}
+
+@media screen and (min-width: 1200px) {
+  .mobile-video-view {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  header {
+    position: fixed;
+    width: 100%;
+  }
+  header .logo-container,
+  header .swiper-container {
+    display: none;
+  }
+  header .link-container .nav-items {
+    background-color: #fff;
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    right: 0;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transform: translateX(100%);
+    transition: transform 0.5s ease-in;
+    z-index: 99;
+  }
+  header .link-container .nav-items .close-menu-btn {
+    position: absolute;
+    right: 1rem;
+    top: 0.7rem;
+    padding-top: 20px;
+  }
+  header .link-container .nav-items .close-menu-btn div {
+    width: 30px;
+    height: 4px;
+    background-color: black;
+    border-radius: 2px;
+  }
+  header .link-container .nav-items .close-menu-btn .line1 {
+    transform: rotate(45deg);
+    position: absolute;
+  }
+  header .link-container .nav-items .close-menu-btn .line2 {
+    transform: rotate(-45deg);
+  }
+  header .link-container .nav-items .nav-item {
+    margin-top: 10px;
+    margin-left: 30px;
+  }
+  header .link-container .nav-items .nav-item .nav-link {
+    color: black;
+    border: none;
+    font-size: 2rem;
+    font-weight: bold;
+  }
+  header .link-container .nav-active {
+    transform: translateX(0%);
+  }
+  @keyframes navItemsShow {
+    from {
+      opacity: 0;
+      transform: translateX(100px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  header .burger {
+    display: block;
+    cursor: pointer;
+  }
+  .mobile-video-view .vid-thumbnail {
+    width: 100%;
+    height: 400px;
+  }
+  .mobile-video-view .vid-thumbnail .headings {
+    padding-top: 20%;
+  }
+  .mobile-video-view .vid-thumbnail .headings .vid-heading {
+    color: white;
+    margin-left: 20px;
+    font-size: 3.5rem;
+    font-weight: bolder;
+  }
+  .mobile-video-view .vid-thumbnail .headings .vid-subheading {
+    color: white;
+    margin-top: 2px;
+    margin-left: 20px;
+    font-size: 1.7rem;
+    font-weight: bold;
+  }
+  .contact-section {
+    padding-top: 0;
+    padding-left: 0;
+    display: block;
+  }
+  .contact-section .image-container {
+    width: 100%;
+  }
+  .contact-section .image-container img {
+    width: 100%;
+  }
+  .contact-section .contact-information {
+    padding-top: 10%;
+  }
+  .contact-section .contact-information .social-media {
+    margin-bottom: 50px;
+  }
+  .contact-heading {
+    font-size: 15rem;
+    top: 20%;
+    left: 12%;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .logo-container,
+  .swiper-container {
+    display: none;
+  }
+  .mobile-video-view .vid-thumbnail {
+    height: 230px;
+  }
+  .mobile-video-view .vid-thumbnail .headings .vid-heading {
+    font-size: 1.7rem;
+    font-weight: bold;
+  }
+  .mobile-video-view .vid-thumbnail .headings .vid-subheading {
+    font-size: 1rem;
+    font-weight: normal;
+  }
+  .contact-heading {
+    font-size: 8rem;
+  }
+}
+/*# sourceMappingURL=style.css.map */
